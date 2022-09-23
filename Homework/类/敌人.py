@@ -34,6 +34,8 @@ def in_enemy(name):
     for i in list01:
         if i.name == name:
             print(i.name, i.blood, i.atk, i.defense)
+
+
 in_enemy("灭霸")
 
 # 查找所有死亡的的敌人
@@ -51,7 +53,8 @@ for i in list01:
         list01.remove(i)
     print(i.print_enemy_info())
 
+print("")
 # 将所有敌人攻击力增加50
 for i in list01:
-
+    i.atk += 50
     print(i.print_enemy_info())
