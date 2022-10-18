@@ -35,10 +35,6 @@ class Vector2:
     def down():
         return Vector2(1, 0)
 
-
-
-
-
 class DoubleListHelper():
     # 获取列表 Vector(1,2) 右边 3个的数据
     # target 列表；vect_pos 位置；vect_dir 方向；count 个数

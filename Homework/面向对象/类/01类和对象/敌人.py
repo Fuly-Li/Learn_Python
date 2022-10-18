@@ -8,24 +8,36 @@ class Enemy:
     def __init__(self, name, blood, atk, defense):
         self.name = name
         self.blood = blood
-        self.atk = atk
+        self.set_atk(atk)
         self.defense = defense
         Enemy.ATk += atk
 
     # 行为
     def print_enemy_info(self):
-        return self.name, self.blood, self.atk, self.defense
+        return self.name, self.blood, self.get_atk(), self.defense
 
     # 该敌人是否在敌人列表中
     def find_enemy(self, name):
         if self.name == name:
-            print("%s在敌人列表中，血量为：%d，攻击力为：%d，防御力为：%d" % (self.name, self.blood, self.atk, self.defense))
+            print("%s在敌人列表中，血量为：%d，攻击力为：%d，防御力为：%d" % (self.name, self.blood, self.get_atk(), self.defense))
         else:
             print("%s该敌人不在敌人列表中" % self.name)
 
+    # 设置攻击力，10--50之间
+    def set_atk(self, atk):
+        if 10 <= atk <= 50:
+            self.__atk = atk
+        else:
+            raise ValueError("攻击力需要在10--50之间")
+
+    def get_atk(self):
+        return self.__atk
+
+
+
 
 # 创建敌人列表
-list01 = [Enemy("张三", 200, 80, 50), Enemy("灭霸", 1000, 1000, 1000), Enemy("李四", 0, 20, 5),
+list01 = [Enemy("张三", 200, 80, 50), Enemy("灭霸", 1000, 10001, 1000), Enemy("李四", 0, 20, 5),
           Enemy("王五", 80, 50, 60)]
 
 
@@ -34,6 +46,8 @@ def in_enemy(name):
     for i in list01:
         if i.name == name:
             print(i.name, i.blood, i.atk, i.defense)
+        # else:
+        #     print("不在")
 
 
 in_enemy("灭霸")
